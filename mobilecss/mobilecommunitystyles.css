@@ -1,0 +1,225 @@
+/* Font import */
+@font-face {
+    font-family: 'DNK';
+    src: url('../fonts/dnk.ttf') format('truetype');
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DNK', sans-serif;
+    background-color: #0b0c10;
+    color: #ecf0f1;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content layout */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: -85%;
+    top: 0;
+    width: 85%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: color 0.3s;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar nav ul li a:hover, .sidebar nav ul li a:active {
+    color: #ff7f00;
+    background-color: rgba(255, 127, 0, 0.1);
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #1f2833;
+    color: #66fcf1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Main content styles */
+.main-content {
+    width: 100%;
+    padding: 60px 20px 20px; /* Increased top padding to account for the sidebar toggle button */
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.open + .sidebar-toggle + .main-content {
+    margin-left: 85%; /* Push content when sidebar is open */
+}
+
+.community-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #66fcf1;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.community-section p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.community-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.community-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 300px;
+    padding: 15px;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.community-button img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.discord {
+    background-color: #7289da;
+}
+
+.discord:hover, .discord:active {
+    background-color: #5a6fb3;
+    transform: translateY(-3px);
+}
+
+.reddit {
+    background-color: #ff4500;
+}
+
+.reddit:hover, .reddit:active {
+    background-color: #cc3700;
+    transform: translateY(-3px);
+}
+
+/* Footer styles */
+footer {
+    background-color: rgba(31, 40, 51, 0.8);
+    color: #66fcf1;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.8em;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+
+    .sidebar {
+        width: 70%;
+        left: -70%;
+    }
+
+    .sidebar.open + .sidebar-toggle + .main-content {
+        margin-left: 70%;
+    }
+
+    .community-links {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .community-button {
+        width: 45%;
+    }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2833;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #66fcf1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #45a29e;
+}

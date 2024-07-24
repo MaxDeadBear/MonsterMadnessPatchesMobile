@@ -1,0 +1,234 @@
+/* Font import */
+@font-face {
+    font-family: 'DNK';
+    src: url('../fonts/dnk.ttf') format('truetype');
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DNK', sans-serif;
+    background-color: #0b0c10;
+    color: #ecf0f1;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content layout */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: -85%;
+    top: 0;
+    width: 85%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: color 0.3s;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar nav ul li a:hover, .sidebar nav ul li a:active {
+    color: #ff7f00;
+    background-color: rgba(255, 127, 0, 0.1);
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #1f2833;
+    color: #66fcf1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Main content styles */
+.main-content {
+    width: 100%;
+    padding-top: 60px; /* To account for the sidebar toggle button */
+}
+
+h1 {
+    color: #66fcf1;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Video player styles */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+}
+
+/* Footer styles */
+footer {
+    background-color: rgba(31, 40, 51, 0.8);
+    color: #66fcf1;
+    padding: 20px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.logos img {
+    max-width: 60px;
+    height: auto;
+}
+
+.esrb-logo {
+    max-width: 40px;
+}
+
+footer p {
+    font-size: 0.8em;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+    }
+
+    .video-container {
+        width: 100%;
+    }
+
+    .logos img {
+        max-width: 50px;
+    }
+
+    .esrb-logo {
+        max-width: 35px;
+    }
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        width: 70%;
+        left: -70%;
+    }
+
+    .main-content {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .video-container {
+        padding-bottom: 42.1875%; /* 16:9 aspect ratio for max-width 1000px */
+    }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2833;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #66fcf1;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #45a29e;
+}
